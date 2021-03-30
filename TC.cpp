@@ -1,39 +1,48 @@
 #include "MAX13856.h"
 //compile with gcc -c Temperature.c -o ./Temperature.o ; g++  -o ./Temperature ./Temperature.o -lpigpio -lrt ; sudo ./Temperature
 
-/*
+#define MUX1_EN	= 31;
+#define MUX2_EN	= 32;
+#define MUX_A0 = 35;
+#define MUX_A1 = 38;
+#define MUX_A2 = 40;
+#define FAULT = 33;
+#define READY = 29;
+#define ERRTEMP	= -6666;
+
+
 void set_mux_address(int address ){
     address = address & 0b00001111;
 	int value = address & ( 1 << 3 );
 	printf("value: %d\n", value);
     if (value){
-		//GPIO.output(MUX1_EN, GPIO.LOW)
-		//GPIO.output(MUX2_EN, GPIO.HIGH)
+		GPIO.output(MUX1_EN, GPIO.LOW)
+		GPIO.output(MUX2_EN, GPIO.HIGH)
 	}
 	else{
-		//GPIO.output(MUX1_EN, GPIO.HIGH)
-		//GPIO.output(MUX2_EN, GPIO.LOW)
+		GPIO.output(MUX1_EN, GPIO.HIGH)
+		GPIO.output(MUX2_EN, GPIO.LOW)
 	}
 	value = address & ( 1 << 2 );
 	if (value)
-		//GPIO.output(MUX_A2, GPIO.HIGH); 
+		GPIO.output(MUX_A2, GPIO.HIGH); 
 	else 
-		//GPIO.output(MUX_A2, GPIO.LOW); 
+		GPIO.output(MUX_A2, GPIO.LOW); 
 		
 	value = address & ( 1 << 1 );
 	if (value)
-		//GPIO.output(MUX_A1, GPIO.HIGH); 
+		GPIO.output(MUX_A1, GPIO.HIGH); 
 	else
-		//GPIO.output(MUX_A1, GPIO.LOW); 
+		GPIO.output(MUX_A1, GPIO.LOW); 
 
 	value = address & ( 1 << 0 );
 	if (value)
-		//GPIO.output(MUX_A0, GPIO.HIGH);
+		GPIO.output(MUX_A0, GPIO.HIGH);
 	else
-		//GPIO.output(MUX_A0, GPIO.LOW);
+		GPIO.output(MUX_A0, GPIO.LOW);
     
 }
-*/
+
 char *get_data&time(){
 	time_t rawtime;
   	struct tm * timeinfo;
@@ -47,9 +56,40 @@ char *get_data&time(){
 	return buffer;
 }
 
-double get_temp(){
-	char temp[16] = {0};
-	printf("%d", temp);
+char* get_temp(){
+	double temp[16] = {0};
+	double resp;
+	for(int channel = 0; channel <=16; channel++){
+		sleep(100);
+		if (channel == 16){
+			temp[channel] = MAX31856GetCJtemp(&ThermocoupleBreakout);
+			//coldjunct
+		}	
+		else {
+			set_mux_address(channel);
+			resp = MAX31856GetTemperature(&ThermocoupleBreakout); 
+
+			if (GPIO.input(FAULT)
+				temp[channel] = resp;
+			else
+				temp[channel] = ERRTEMP;
+		}
+	}
+	return temp;
+}
+
+
+void setup_com(){
+	
+	
+	GPIO.setup(FAULT, GPIO.IN )
+	GPIO.setup(READY, GPIO.IN )
+	GPIO.setup( MUX1_EN, GPIO.OUT ) 
+	GPIO.setup( MUX2_EN, GPIO.OUT ) 
+	GPIO.setup( MUX_A0, GPIO.OUT ) 
+	GPIO.setup( MUX_A1, GPIO.OUT ) 
+	GPIO.setup( MUX_A2, GPIO.OUT ) 
+	
 }
 
 int main(void)
@@ -59,6 +99,7 @@ int main(void)
     
 
     gpioInitialise();
+	//setup_com();
     ThermocoupleBreakout = SetupMAX31856(ThermocoupleBreakoutChipSelectGPIO, MAX31856_ThermocoupleType_T, MAX31856_Unit_Celcius);
     // Change any other setting here //
     ThermocoupleBreakout.AveragingMode = MAX31856_AveragingMode_2;
