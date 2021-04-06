@@ -1,0 +1,13 @@
+# Target labels
+ bootloader
+# Source files and their labels
+/home/ciro/esp/projects_idf/espnow_spi_VF/build/CMakeFiles/bootloader
+/home/ciro/esp/projects_idf/espnow_spi_VF/build/CMakeFiles/bootloader.rule
+/home/ciro/esp/projects_idf/espnow_spi_VF/build/CMakeFiles/bootloader-complete.rule
+/home/ciro/esp/projects_idf/espnow_spi_VF/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule
+/home/ciro/esp/projects_idf/espnow_spi_VF/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule
+/home/ciro/esp/projects_idf/espnow_spi_VF/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule
+/home/ciro/esp/projects_idf/espnow_spi_VF/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule
+/home/ciro/esp/projects_idf/espnow_spi_VF/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule
+/home/ciro/esp/projects_idf/espnow_spi_VF/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule
+/home/ciro/esp/projects_idf/espnow_spi_VF/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule
