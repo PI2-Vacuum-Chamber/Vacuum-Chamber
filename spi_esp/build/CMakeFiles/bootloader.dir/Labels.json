@@ -2,34 +2,34 @@
 	"sources" : 
 	[
 		{
-			"file" : "/home/ciro/esp/projects_idf/espnow_spi_VF/build/CMakeFiles/bootloader"
+			"file" : "/home/ciro/esp/projects_idf/spi_pi2/build/CMakeFiles/bootloader"
 		},
 		{
-			"file" : "/home/ciro/esp/projects_idf/espnow_spi_VF/build/CMakeFiles/bootloader.rule"
+			"file" : "/home/ciro/esp/projects_idf/spi_pi2/build/CMakeFiles/bootloader.rule"
 		},
 		{
-			"file" : "/home/ciro/esp/projects_idf/espnow_spi_VF/build/CMakeFiles/bootloader-complete.rule"
+			"file" : "/home/ciro/esp/projects_idf/spi_pi2/build/CMakeFiles/bootloader-complete.rule"
 		},
 		{
-			"file" : "/home/ciro/esp/projects_idf/espnow_spi_VF/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule"
+			"file" : "/home/ciro/esp/projects_idf/spi_pi2/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule"
 		},
 		{
-			"file" : "/home/ciro/esp/projects_idf/espnow_spi_VF/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule"
+			"file" : "/home/ciro/esp/projects_idf/spi_pi2/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule"
 		},
 		{
-			"file" : "/home/ciro/esp/projects_idf/espnow_spi_VF/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule"
+			"file" : "/home/ciro/esp/projects_idf/spi_pi2/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule"
 		},
 		{
-			"file" : "/home/ciro/esp/projects_idf/espnow_spi_VF/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule"
+			"file" : "/home/ciro/esp/projects_idf/spi_pi2/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule"
 		},
 		{
-			"file" : "/home/ciro/esp/projects_idf/espnow_spi_VF/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule"
+			"file" : "/home/ciro/esp/projects_idf/spi_pi2/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule"
 		},
 		{
-			"file" : "/home/ciro/esp/projects_idf/espnow_spi_VF/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule"
+			"file" : "/home/ciro/esp/projects_idf/spi_pi2/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule"
 		},
 		{
-			"file" : "/home/ciro/esp/projects_idf/espnow_spi_VF/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule"
+			"file" : "/home/ciro/esp/projects_idf/spi_pi2/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule"
 		}
 	],
 	"target" : 

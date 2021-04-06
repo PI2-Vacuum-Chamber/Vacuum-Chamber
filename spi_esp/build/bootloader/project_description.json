@@ -1,8 +1,8 @@
 {
     "project_name":       "bootloader",
     "project_path":       "/home/ciro/esp/esp-idf/components/bootloader/subproject",
-    "build_dir":          "/home/ciro/esp/projects_idf/espnow_spi_VF/build/bootloader",
-    "config_file":        "/home/ciro/esp/projects_idf/espnow_spi_VF/sdkconfig",
+    "build_dir":          "/home/ciro/esp/projects_idf/spi_pi2/build/bootloader",
+    "config_file":        "/home/ciro/esp/projects_idf/spi_pi2/sdkconfig",
     "config_defaults":    "",
     "app_elf":            "bootloader.elf",
     "app_bin":            "bootloader.bin",

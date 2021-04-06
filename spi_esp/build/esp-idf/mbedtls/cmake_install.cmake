@@ -34,7 +34,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/ciro/esp/projects_idf/espnow_spi_VF/build/esp-idf/mbedtls/mbedtls/cmake_install.cmake")
+  include("/home/ciro/esp/projects_idf/spi_pi2/build/esp-idf/mbedtls/mbedtls/cmake_install.cmake")
 
 endif()
 

@@ -1,4 +1,4 @@
-# Install script for directory: /home/ciro/esp/projects_idf/espnow_spi_VF/main
+# Install script for directory: /home/ciro/esp/projects_idf/spi_pi2/main
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

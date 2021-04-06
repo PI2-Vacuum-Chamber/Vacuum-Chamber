@@ -77,7 +77,7 @@ void spi_task(void *pvParameter)
     ret_spi=spi_slave_initialize(RCV_HOST, &buscfg, &slvcfg, DMA_CHAN);
     assert(ret_spi==ESP_OK);
 
-    WORD_ALIGNED_ATTR char sendbuf2[16] = ""; //129
+    WORD_ALIGNED_ATTR char sendbuf2[19] = ""; //129
     WORD_ALIGNED_ATTR unsigned long recvbuf2 = 0;
     //WORD_ALIGNED_ATTR double recvbuf3 = 0;
 
@@ -93,14 +93,11 @@ void spi_task(void *pvParameter)
         //memset(recvbuf2, 0xA5, 129);
         
         //memset(recvbuf2, 0XA5, 129);
-        if (i<15)
+        if (i<14)
         {
-            sprintf(sendbuf2, "Hello Raspberry");
+            sprintf(sendbuf2, "Recebido Raspberry");
         }
-        else
-        {
-            sprintf(sendbuf2, "Hello RASPW0");
-        }
+        
         //Set up a transaction of 128 bytes to send/receive
         t.length=128*8;
         t.tx_buffer=sendbuf2;//sendbuf;
@@ -110,10 +107,14 @@ void spi_task(void *pvParameter)
         
         ret_spi=spi_slave_transmit(RCV_HOST, &t, portMAX_DELAY);
 
-        ESP_LOGI(TAG2, "rx buffer: %ld", recvbuf2);
+        ESP_LOGI(TAG2, "Temperatura[%d] rx buffer: %ld",i,recvbuf2);
         //ESP_LOGI(TAG2, "rx buffer: %lf", recvbuf3);
         ESP_LOGI(TAG2, "tx buffer: %s", sendbuf2);
         printf("\n");
+        if (i==13)
+        {
+            i=0;
+        }
     }
     memset(sendbuf2, 0xA5, 16);
     vTaskDelete(NULL);

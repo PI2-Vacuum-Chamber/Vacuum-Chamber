@@ -1298,7 +1298,7 @@ rule CXX_STATIC_LIBRARY_LINKER____idf_main
 # Rule for re-running cmake.
 
 rule RERUN_CMAKE
-  command = /home/ciro/.espressif/tools/cmake/3.13.4/bin/cmake -S/home/ciro/esp/projects_idf/espnow_spi_VF -B/home/ciro/esp/projects_idf/espnow_spi_VF/build
+  command = /home/ciro/.espressif/tools/cmake/3.13.4/bin/cmake -S/home/ciro/esp/projects_idf/spi_pi2 -B/home/ciro/esp/projects_idf/spi_pi2/build
   description = Re-running CMake...
   generator = 1
 

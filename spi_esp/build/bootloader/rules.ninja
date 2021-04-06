@@ -175,7 +175,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_main
 # Rule for re-running cmake.
 
 rule RERUN_CMAKE
-  command = /home/ciro/.espressif/tools/cmake/3.13.4/bin/cmake -S/home/ciro/esp/esp-idf/components/bootloader/subproject -B/home/ciro/esp/projects_idf/espnow_spi_VF/build/bootloader
+  command = /home/ciro/.espressif/tools/cmake/3.13.4/bin/cmake -S/home/ciro/esp/esp-idf/components/bootloader/subproject -B/home/ciro/esp/projects_idf/spi_pi2/build/bootloader
   description = Re-running CMake...
   generator = 1
 
