@@ -1,7 +1,7 @@
 /**********************************************************
 Raspberry como Mestre SPI
 Compilar:
-g++ -Wall -pthread -o PI2 spiPI2.cpp -lpigpio -lrt
+g++ -Wall -pthread -o rasp_task rasp_task.cpp -lpigpio -lrt
 ***********************************************************/
 
 #include <stdio.h>
@@ -26,8 +26,8 @@ double Temp[13] = {-18.4, -17.6, -15.3, -5.0, 6.5, 7.3, 7.6, 8.2, 9.4, 10.0, 11.
 
 //buffer para transmissão RS232 para PG201 e buffer para receber valores de pressão e outros dados
 char buf[] = "b[,][TAB]x.xxxxE±xx";
-char bufp[] = "RPV[a]<CR>"; //ler pressão nos canais	
-char buf2[100];
+char buftx_serial[] = "RPV[a]<CR>"; //ler pressão nos canais	
+char bufrx_serial[100];
 
 struct termios options;
 
@@ -93,17 +93,17 @@ int write_read_serial(int file, char *transmissao){
 	printf("Enviando Comando para ler Pressão");
 	printf("\n");
 
-	//int count = write(file, bufp,strlen(bufp));
+	//int count = write(file, buftx_serial,strlen(buftx_serial));
 	int count = write(file, transmissao,strlen(transmissao));
     	gpioDelay(100000);
     	int bytes;
     	ioctl(file, FIONREAD, &bytes);
     	if(bytes!=0){
-    		count = read(file, buf2, 100);
+    		count = read(file, bufrx_serial, 100);
     	}
 	
 	printf("\nRecebendo Dados da interface por loopback\n");
-    	printf("%s\n\r", buf2);
+    	printf("%s\n\r", bufrx_serial);
 	
 	printf("Caso o PG201 estivesse connectado, a Resposta: %s\n\r", buf);
 
@@ -149,7 +149,7 @@ int main (void){
 			//cout<<&Temp_string[j][14]; //debug
 		}
 		
-		write_read_serial(sfd, bufp);
+		write_read_serial(sfd, buftx_serial);
 		
 		memset(rxDat, 0xA5, 14); //garante que buffer rx começa vazio
 		while(gpioRead(HS)==0);  //espera pino da esp ativar para começar spi
