@@ -1,0 +1,34 @@
+{
+    "datas": [{
+            "id": 1,
+            "type": "temperature",
+      "field": "camara",
+            "value": 22.1
+         }, {
+            "id": 2,
+            "type": "pressure",
+       "field": "camara",
+            "value": 1001
+        }, {
+            "id": 3,
+            "type": "temperature",
+       "field": "linha",
+            "value": 22.2
+        }, {
+            "id": 4,
+            "type": "temperature",
+       "field": "camara",
+            "value": 22.3
+        }, {
+            "id": 5,
+            "type": "pressure",
+       "field": "linha",
+            "value": 1015
+        }, {
+            "id": 6,
+            "type": "pressure",
+       "field": "camara",
+            "value": 2000
+        }
+    ]
+}
