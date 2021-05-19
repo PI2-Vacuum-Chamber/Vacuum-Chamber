@@ -1,0 +1,7 @@
+{ "Itens": 
+  [
+    { "id": 1, "tipo": 1, "valor": 20, }, 
+    { "id": 2, "tipo": 3, "valor": 33, }, 
+    { "id": 3, "tipo": 6, "valor": 60, } 
+  ]
+}
